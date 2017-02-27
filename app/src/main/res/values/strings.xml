@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Mathemaniacs</string>
+    <string name="basicMultiHighScore">BasicMultiHighScore</string>
+    <string name="advancedMultiHighScore">AdvancedMultiHighScore</string>
+    <string name="expertMultiHighScore">ExpertMultiHighScore</string>
+    <string name="squaresHighScore">SquaresHighScore</string>
+    <string name="moduloHighScore">ModuloHighScore</string>
+    <string name="factorialHighScore">FactorialHighScore</string>
 </resources>

@@ -1,9 +1,12 @@
 package com.willard.william.mathemaniacs;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,15 +18,18 @@ import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
 
+    SharedPreferences sharedPref;
     int mode;
     Question q;
     int real_answer;
     int time_limit;
     ProgressBar pb;
+    TextView tv;
     CountDownTimer cdt;
     int time_passed;
     boolean timerDone;
     int streak;
+    int previous_best_streak;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,8 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         mode = (int) getIntent().getSerializableExtra("mode");
         streak = (int) getIntent().getSerializableExtra("streak");
+        sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        getPreviousBest();
         setQuestion();
         setQuestionText();
         setAnswers();
@@ -39,6 +47,28 @@ public class GameActivity extends AppCompatActivity {
         time_passed = 0;
         timerDone = false;
         setProgressBar();
+    }
+
+    private void getPreviousBest() {
+        switch(mode) {
+            case 0:
+                previous_best_streak = sharedPref.getInt(getString(R.string.basicMultiHighScore), 0);
+                break;
+            case 1:
+                previous_best_streak = sharedPref.getInt(getString(R.string.advancedMultiHighScore), 0);
+                break;
+            case 2:
+                previous_best_streak = sharedPref.getInt(getString(R.string.expertMultiHighScore), 0);
+                break;
+            case 3:
+                previous_best_streak = sharedPref.getInt(getString(R.string.squaresHighScore), 0);
+                break;
+            case 4:
+                previous_best_streak = sharedPref.getInt(getString(R.string.moduloHighScore), 0);
+                break;
+            case 5:
+                previous_best_streak = sharedPref.getInt(getString(R.string.factorialHighScore), 0);
+        }
     }
 
     private void setQuestion() {
@@ -307,15 +337,14 @@ public class GameActivity extends AppCompatActivity {
             wrong_answer = (String) b.getText();
         }
         if (mode == 0 || mode == 1 || mode == 2 || mode == 3) {
-            //TODO add best streak for current mode taken from database in message
-            //Best Streak: x
             alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " x " + q.secondOperand +
-                    " = " + q.result + "\nStreak: " + streak);
+                    " = " + q.result + "\nStreak: " + streak + "\nPrevious Best: " + previous_best_streak);
         } else if (mode == 4) {
             alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " % " + q.secondOperand +
-                    " = " + q.result + "\nStreak: " + streak);
+                    " = " + q.result + "\nStreak: " + streak + "\nPrevious Best: " + previous_best_streak);
         } else if (mode == 5) {
-            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " ! = " + q.result + "\nStreak: " + streak);
+            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " ! = " + q.result + "\nStreak: " + streak
+                    + "\nPrevious Best: " + previous_best_streak);
         }
         alert.setCancelable(false);
         alert.setNegativeButton("Back to Menu", new DialogInterface.OnClickListener() {
@@ -339,13 +368,14 @@ public class GameActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Out of Time!");
         if (mode == 0 || mode == 1 || mode == 2 || mode == 3) {
-            //TODO add best streak for current mode taken from database in message
-            //Best Streak: x
-            alert.setMessage(q.firstOperand + " x " + q.secondOperand + " = " + q.result + "\nStreak: " + streak);
+            alert.setMessage(q.firstOperand + " x " + q.secondOperand + " = " + q.result + "\nStreak: " + streak
+                    + "\nPrevious Best: " + previous_best_streak);
         } else if (mode == 4) {
-            alert.setMessage(q.firstOperand + " % " + q.secondOperand + " = " + q.result + "\nStreak: " + streak);
+            alert.setMessage(q.firstOperand + " % " + q.secondOperand + " = " + q.result + "\nStreak: " + streak
+                    + "\nPrevious Best: " + previous_best_streak);
         } else if (mode == 5) {
-            alert.setMessage(q.firstOperand + " ! = " + q.result + "\nStreak: " + streak);
+            alert.setMessage(q.firstOperand + " ! = " + q.result + "\nStreak: " + streak
+                    + "\nPrevious Best: " + previous_best_streak);
         }
         alert.setCancelable(false);
         alert.setNegativeButton("Back to Menu", new DialogInterface.OnClickListener() {
@@ -367,6 +397,9 @@ public class GameActivity extends AppCompatActivity {
 
     public void backToMenu() {
         cdt.cancel();
+        if (streak > previous_best_streak) {
+            newHighScore();
+        }
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
@@ -377,6 +410,9 @@ public class GameActivity extends AppCompatActivity {
         if (correct == 1) {
             intent.putExtra("streak", streak+1);
         } else {
+            if (streak > previous_best_streak) {
+                newHighScore();
+            }
             intent.putExtra("streak", 0);
         }
         intent.putExtra("mode", mode);
@@ -394,19 +430,47 @@ public class GameActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    private void newHighScore() {
+        SharedPreferences.Editor editor = sharedPref.edit();
+        switch (mode) {
+            case 0:
+                editor.putInt(getString(R.string.basicMultiHighScore), streak);
+                break;
+            case 1:
+                editor.putInt(getString(R.string.advancedMultiHighScore), streak);
+                break;
+            case 2:
+                editor.putInt(getString(R.string.expertMultiHighScore), streak);
+                break;
+            case 3:
+                editor.putInt(getString(R.string.squaresHighScore), streak);
+                break;
+            case 4:
+                editor.putInt(getString(R.string.moduloHighScore), streak);
+                break;
+            case 5:
+                editor.putInt(getString(R.string.factorialHighScore), streak);
+        }
+        editor.commit();
+    }
+
     public void setProgressBar() {
         pb = (ProgressBar) findViewById(R.id.timeLimitBar);
         pb.setMax(time_limit/100);
         pb.setProgress(time_passed);
+        tv = (TextView) findViewById(R.id.timeLeftText);
+        tv.setText("Time Left: " + (time_limit/1000+1));
         cdt = new CountDownTimer(time_limit, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
+                tv.setText("Time Left: " + (millisUntilFinished/1000+1));
                 time_passed++;
                 pb.setProgress(time_passed);
             }
             @Override
             public void onFinish() {
                 timerDone = true;
+                tv.setText("Time Left: 0");
                 outOfTime();
                 time_passed++;
                 pb.setProgress(time_passed);
