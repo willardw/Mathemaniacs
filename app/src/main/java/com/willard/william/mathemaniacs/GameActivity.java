@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
 
+    //TODO change textViews to have backgrounds and look better
+
     SharedPreferences sharedPref;
     int mode;
     Question q;
@@ -266,8 +268,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setStreak() {
-        TextView tv = (TextView) findViewById(R.id.streakText);
-        tv.setText("Streak: "+streak);
+        TextView tv1 = (TextView) findViewById(R.id.streakText);
+        tv1.setText("Current Streak: " + streak);
+        TextView tv2 = (TextView) findViewById(R.id.previousStreakText);
+        tv2.setText("Previous Streak: " + previous_best_streak);
     }
 
     public void answer1ButtonPressed(View v) {
@@ -457,6 +461,7 @@ public class GameActivity extends AppCompatActivity {
     public void setProgressBar() {
         pb = (ProgressBar) findViewById(R.id.timeLimitBar);
         pb.setMax(time_limit/100);
+        pb.setScaleY(2f);
         pb.setProgress(time_passed);
         tv = (TextView) findViewById(R.id.timeLeftText);
         tv.setText("Time Left: " + (time_limit/1000+1));

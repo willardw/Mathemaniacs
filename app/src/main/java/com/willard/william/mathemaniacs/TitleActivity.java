@@ -7,6 +7,9 @@ import android.view.View;
 
 public class TitleActivity extends AppCompatActivity {
 
+    //TODO change textView for title to have background and look better.
+    //TODO make ready for release
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

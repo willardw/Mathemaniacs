@@ -10,6 +10,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    //TODO change textView to have background and look better
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

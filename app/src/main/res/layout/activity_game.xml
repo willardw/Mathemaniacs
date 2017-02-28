@@ -71,18 +71,6 @@
         android:onClick="answer4ButtonPressed"/>
 
     <TextView
-        android:text="Streak: 0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/timeLimitBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="22dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="44dp"
-        android:id="@+id/streakText" />
-
-    <TextView
         android:text="Time Left: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -90,5 +78,26 @@
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/answer1Button"
         android:layout_alignStart="@+id/answer1Button" />
+
+    <TextView
+        android:text="Previous Streak: 0"
+        android:textAlignment="textEnd"
+        android:gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/previousStreakText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:text="Current Streak: 0"
+        android:textAlignment="textEnd"
+        android:gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/streakText"
+        android:layout_below="@+id/previousStreakText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
