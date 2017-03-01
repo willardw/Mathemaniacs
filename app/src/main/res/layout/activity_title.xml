@@ -12,24 +12,40 @@
     android:background="@drawable/mathemaniacsbackground"
     tools:context="com.willard.william.mathemaniacs.TitleActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MATHEMANIACS"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"
-        android:id="@+id/titleText" />
-
     <Button
-        android:text="Play!"
+        android:text="@string/play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:onClick="playButtonPressed"
         android:id="@+id/titlePlayButton" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/titlePlayButton">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/titlebackground"
+            android:id="@+id/titleBackground"
+            android:layout_gravity="center"
+            android:contentDescription="@string/titleBackgroundDescription"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/titleText" />
+
+    </FrameLayout>
 
 
 </RelativeLayout>

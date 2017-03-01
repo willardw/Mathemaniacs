@@ -1,16 +1,12 @@
 package com.willard.william.mathemaniacs;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-
-    //TODO change textView to have background and look better
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

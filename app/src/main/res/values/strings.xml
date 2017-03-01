@@ -6,4 +6,16 @@
     <string name="squaresHighScore">SquaresHighScore</string>
     <string name="moduloHighScore">ModuloHighScore</string>
     <string name="factorialHighScore">FactorialHighScore</string>
+    <string name="play">Play!</string>
+    <string name="title">MATHEMANIACS</string>
+    <string name="titleBackgroundDescription">Background Image for Title</string>
+    <string name="back">Back</string>
+    <string name="gameModes">Game Modes</string>
+    <string name="modesBackgroundDescription">Background Image for Modes Text</string>
+    <string name="basicMulti">Basic Multiplication</string>
+    <string name="advancedMulti">Advanced Multiplication</string>
+    <string name="expertMulti">Expert Multiplication</string>
+    <string name="squares">Squares</string>
+    <string name="modulo">Modulo</string>
+    <string name="factorial">Factorial</string>
 </resources>

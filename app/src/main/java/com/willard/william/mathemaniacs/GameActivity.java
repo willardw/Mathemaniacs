@@ -6,10 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.CountDownTimer;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -455,7 +453,7 @@ public class GameActivity extends AppCompatActivity {
             case 5:
                 editor.putInt(getString(R.string.factorialHighScore), streak);
         }
-        editor.commit();
+        editor.apply();
     }
 
     public void setProgressBar() {
