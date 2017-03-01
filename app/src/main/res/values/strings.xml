@@ -18,4 +18,7 @@
     <string name="squares">Squares</string>
     <string name="modulo">Modulo</string>
     <string name="factorial">Factorial</string>
+    <string name="playButtonDescription">Background Image for Play Button</string>
+    <string name="backButtonDescription">Background Image for Back Button</string>
+    <string name="modeButtonDescription">Background Image for Mode Buttons</string>
 </resources>

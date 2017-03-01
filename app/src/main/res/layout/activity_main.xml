@@ -12,15 +12,30 @@
     android:background="@drawable/mathemaniacsbackground"
     tools:context="com.willard.william.mathemaniacs.MainActivity">
 
-    <Button
-        android:text="@string/back"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="backButtonPressed"
-        android:id="@+id/backMainButton" />
+        android:id="@+id/backButtonLayout">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/smallbuttonbackground"
+            android:background="@null"
+            android:contentDescription="@string/backButtonDescription"
+            android:onClick="backButtonPressed"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -28,8 +43,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
-        android:id="@+id/frameLayout"
-        android:layout_below="@+id/backMainButton">
+        android:id="@+id/modesLayout"
+        android:layout_below="@+id/backButtonLayout"
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -51,53 +67,144 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/frameLayout"
+        android:layout_below="@+id/modesLayout"
         android:id="@+id/buttonLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp">
+        android:layout_marginTop="32dp">
 
-        <Button
-            android:text="@string/basicMulti"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/basicMultiplyButton"
-            android:onClick="basicMultiplyButtonPressed"/>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:text="@string/advancedMulti"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/advancedMultiplyButton"
-            android:onClick="advancedMultiplyButtonPressed"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/largebuttonbackground"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:contentDescription="@string/modeButtonDescription"
+                android:onClick="basicMultiplyButtonPressed"/>
 
-        <Button
-            android:text="@string/expertMulti"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/expertMultiplyButton"
-            android:onClick="expertMultiplyButtonPressed"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/basicMulti"
+                android:layout_gravity="center"/>
 
-        <Button
-            android:text="@string/squares"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/squaresButton"
-            android:onClick="squaresButtonPressed"/>
+        </FrameLayout>
 
-        <Button
-            android:text="@string/modulo"
-            android:layout_width="match_parent"
+        <FrameLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/moduloButton"
-            android:onClick="moduloButtonPressed"/>
+            android:layout_marginTop="15dp">
 
-        <Button
-            android:text="@string/factorial"
-            android:layout_width="match_parent"
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/largebuttonbackground"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:contentDescription="@string/modeButtonDescription"
+                android:onClick="advancedMultiplyButtonPressed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/advancedMulti"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/factorialButton"
-            android:onClick="factorialButtonPressed"/>
+            android:layout_marginTop="15dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/largebuttonbackground"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:contentDescription="@string/modeButtonDescription"
+                android:onClick="expertMultiplyButtonPressed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/expertMulti"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/largebuttonbackground"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:contentDescription="@string/modeButtonDescription"
+                android:onClick="squaresButtonPressed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/squares"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/largebuttonbackground"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:contentDescription="@string/modeButtonDescription"
+                android:onClick="moduloButtonPressed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/modulo"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/largebuttonbackground"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:contentDescription="@string/modeButtonDescription"
+                android:onClick="factorialButtonPressed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/factorial"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+
     </LinearLayout>
+
 </RelativeLayout>

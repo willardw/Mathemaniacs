@@ -1,11 +1,8 @@
 package com.willard.william.mathemaniacs;
 
-import android.util.Log;
-
-import java.util.Random;
-
 /**
- * Created by William on 2/21/2017.
+ * Abstract Class for Questions in Game Activity.
+ * Contains all member variables for children.
  */
 
 public abstract class Question {
