@@ -5,9 +5,9 @@ package com.willard.william.mathemaniacs;
  * Contains all member variables for children.
  */
 
-public abstract class Question {
+abstract class Question {
 
-    int mode;
+    private int mode;
     int firstOperand;
     int secondOperand;
     int operation;
@@ -21,52 +21,52 @@ public abstract class Question {
 
     Question() { }
 
-    public void setMode(int mode) {
+    void setMode(int mode) {
         this.mode = mode;
     }
 
-    public void setFirstOperand(int operand) {
+    void setFirstOperand(int operand) {
         this.firstOperand = operand;
     }
 
-    public void setSecondOperand(int operand) {
+    void setSecondOperand(int operand) {
         this.secondOperand = operand;
     }
 
-    public void setOperation(int op) {
+    void setOperation(int op) {
         this.operation = op;
     }
 
-    public void setResult(int result) {
+    void setResult(int result) {
         this.result = result;
     }
 
-    public void setRealAnswer(int answer) {
+    void setRealAnswer(int answer) {
         this.real_answer = answer;
     }
 
-    public void setFakeAnswer1(int answer) {
+    void setFakeAnswer1(int answer) {
         this.fake_answer1 = answer;
     }
 
-    public void setFakeAnswer2(int answer) {
+    void setFakeAnswer2(int answer) {
         this.fake_answer2 = answer;
     }
 
-    public void setFakeAnswer3(int answer) {
+    void setFakeAnswer3(int answer) {
         this.fake_answer3 = answer;
     }
 
-    public void setTime_limit(int time) {
+    void setTime_limit(int time) {
         this.time_limit = time;
     }
 
-    public void setBlank(int blank) {
+    void setBlank(int blank) {
         this.blank = blank;
     }
 
     //finds a random fake answer for operand blanks on the interval
-    public int findFakeOperandInterval(int interval) {
+    int findFakeOperandInterval(int interval) {
         int fake = 0;
         while (fake < 1 || fake == real_answer || fake == fake_answer1 || fake == fake_answer2 || fake == fake_answer3) {
             int rand = (int)(Math.random()*interval)-(interval/2);
@@ -79,7 +79,7 @@ public abstract class Question {
     }
 
     //finds a random fake answer for result blanks on the interval
-    public int findFakeResultInterval(int interval) {
+    int findFakeResultInterval(int interval) {
         int fake = 0;
         while (fake < 1 || fake == real_answer || fake == fake_answer1 || fake == fake_answer2 || fake == fake_answer3) {
             int rand = (int)(Math.random()*interval)-(interval/2);
@@ -89,7 +89,7 @@ public abstract class Question {
     }
 
     //finds a fake answer + or - first operand for result blanks
-    public int findFakeFirstOperand() {
+    int findFakeFirstOperand() {
         int fake = 0;
         while (fake < 1 || fake == real_answer || fake == fake_answer1 || fake == fake_answer2 || fake == fake_answer3) {
             double rand = Math.random();
@@ -103,7 +103,7 @@ public abstract class Question {
     }
 
     //finds a fake answer + or - seconds operand for result blanks
-    public int findFakeSecondOperand() {
+    int findFakeSecondOperand() {
         int fake = 0;
         while (fake < 1 || fake == real_answer || fake == fake_answer1 || fake == fake_answer2 || fake == fake_answer3) {
             double rand = Math.random();
@@ -117,7 +117,7 @@ public abstract class Question {
     }
 
     // picks a blank(0->first operand, 1->second operand, 2->result) from non-uniform probability
-    public int chooseBlank() {
+    int chooseBlank() {
         // table of probabilities:  x   0   1   2
         //                          p   .2  .2  .6
         double rand = Math.random();
@@ -133,7 +133,7 @@ public abstract class Question {
     }
 
     //picks number between 1 and 10 from non-uniform probability
-    public int getBasicNumber() {
+    int getBasicNumber() {
         // table of probabilities:  x   1   2   3   4   5   6   7   8   9   10
         //                          p   .06 .11 .11 .11 .11 .11 .11 .11 .11 .06
         double rand = Math.random();

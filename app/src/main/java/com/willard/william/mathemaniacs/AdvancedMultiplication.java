@@ -1,17 +1,18 @@
 package com.willard.william.mathemaniacs;
 
 /**
- * Created by William on 2/24/2017.
+ * Advanced Multiplication class. Extends parent class Question.
+ * Creates an advanced multiplication question for the game activity.
  */
 
-public class AdvancedMultiplication extends Question {
+class AdvancedMultiplication extends Question {
 
-    public AdvancedMultiplication() {
+    AdvancedMultiplication() {
         super();
         super.setMode(1);
-        super.setTime_limit(7500); //in milliseconds
+        super.setTime_limit(8000); //in milliseconds
         super.setOperation(0); //multiply
-        super.setFirstOperand(getBasicNumber()); //range 1-10
+        super.setFirstOperand(getBasicNumber()+1); //range 2-11
         super.setSecondOperand(getAdvancedNumber()); //range 11-30
         super.setResult(firstOperand*secondOperand);
         super.setBlank(chooseBlank());
@@ -38,7 +39,7 @@ public class AdvancedMultiplication extends Question {
     }
 
     // picks number between 11 and 30 from uniform probability
-    public int getAdvancedNumber() {
+    private int getAdvancedNumber() {
         // table of probabilities:  x   11-20   21-30
         //                          p   .50     .50
         double rand = Math.random();

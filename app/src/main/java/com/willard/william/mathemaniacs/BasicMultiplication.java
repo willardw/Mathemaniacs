@@ -1,15 +1,16 @@
 package com.willard.william.mathemaniacs;
 
 /**
- * Created by William on 2/24/2017.
+ * Basic Multiplication class. Extends parent class Question.
+ * Creates a basic multiplication question for the game activity.
  */
 
-public class BasicMultiplication extends Question {
+class BasicMultiplication extends Question {
 
-    public BasicMultiplication() {
+    BasicMultiplication() {
         super();
         super.setMode(0);
-        super.setTime_limit(2500); //in milliseconds
+        super.setTime_limit(3000); //in milliseconds
         super.setOperation(0); //multiply
         super.setFirstOperand(getBasicNumber()); //range 1-10
         super.setSecondOperand(getBasicNumber()); //range 1-10

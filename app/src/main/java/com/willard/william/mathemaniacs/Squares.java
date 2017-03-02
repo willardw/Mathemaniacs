@@ -1,15 +1,16 @@
 package com.willard.william.mathemaniacs;
 
 /**
- * Created by William on 2/24/2017.
+ * Squares class. Extends parent class Question.
+ * Creates a squares question for the game activity.
  */
 
-public class Squares extends Question {
+class Squares extends Question {
 
-    public Squares() {
+    Squares() {
         super();
         super.setMode(3);
-        super.setTime_limit(3000); //in milliseconds
+        super.setTime_limit(5000); //in milliseconds
         super.setOperation(0); //multiply
         super.setFirstOperand(getSquaresNumber()); //range 1-13
         super.setSecondOperand(firstOperand);
@@ -24,9 +25,9 @@ public class Squares extends Question {
         super.setFakeAnswer3(findFakeSquare());
     }
 
-    // picks a number between 1 and 13 from uniform probability
+    // picks a number between 1 and 25 from uniform probability
     private int getSquaresNumber() {
-        return (int)(Math.random()*13)+1;
+        return (int)(Math.random()*25)+1;
     }
 
     // picks a square that isn't the result that is close to result

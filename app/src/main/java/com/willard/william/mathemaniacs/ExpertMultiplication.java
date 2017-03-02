@@ -1,12 +1,13 @@
 package com.willard.william.mathemaniacs;
 
 /**
- * Created by William on 2/24/2017.
+ * Expert Multiplication class. Extends parent class Question.
+ * Creates an expert multiplication question for the game activity.
  */
 
-public class ExpertMultiplication extends Question {
+class ExpertMultiplication extends Question {
 
-    public ExpertMultiplication() {
+    ExpertMultiplication() {
         super();
         super.setMode(2);
         super.setTime_limit(10000); //in milliseconds
@@ -37,7 +38,7 @@ public class ExpertMultiplication extends Question {
     }
 
     // picks number between 31 and 50 from uniform probability
-    public int getExpertNumber() {
+    private int getExpertNumber() {
         // table of probabilities:  x   31-40   41-50
         //                          p   .50     .50
         double rand = Math.random();

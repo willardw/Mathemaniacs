@@ -319,6 +319,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void correctAnswer() {
         cdt.cancel();
+        //TODO make a toast saying correct, should be discrete but also inform player that they did good
         newGame(1);
     }
 

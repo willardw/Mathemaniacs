@@ -1,12 +1,13 @@
 package com.willard.william.mathemaniacs;
 
 /**
- * Created by William on 2/24/2017.
+ * Factorial class. Extends parent class Question.
+ * Creates a factorial question for the game activity.
  */
 
-public class Factorial extends Question {
+class Factorial extends Question {
 
-    public Factorial() {
+    Factorial() {
         super();
         super.setMode(5);
         super.setTime_limit(5000); //in milliseconds
@@ -19,9 +20,9 @@ public class Factorial extends Question {
         super.setFakeAnswer2(0);
         super.setFakeAnswer3(0);
         super.setRealAnswer(result);
-        super.setFakeAnswer1(findFakeFactorialAnswer());
-        super.setFakeAnswer2(findFakeResultInterval(7));
-        super.setFakeAnswer3(findFakeResultInterval(7));
+        super.setFakeAnswer1(findFakeResultInterval(15));
+        super.setFakeAnswer2(findFakeResultInterval(15));
+        super.setFakeAnswer3(findFakeResultInterval(15));
     }
 
     // picks a number between 1 and 8 from uniform probability
@@ -35,7 +36,8 @@ public class Factorial extends Question {
         }
         return n*(factorial(n-1));
     }
-
+    //TODO remove this method if we never end up using it (highly likely)
+    /**
     private int findFakeFactorialAnswer() {
         int fake = 0;
         while (fake < 1 || fake == real_answer || fake == fake_answer1 || fake == fake_answer2 || fake == fake_answer3) {
@@ -44,4 +46,5 @@ public class Factorial extends Question {
         }
         return fake;
     }
+    */
 }

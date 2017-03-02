@@ -1,12 +1,13 @@
 package com.willard.william.mathemaniacs;
 
 /**
- * Created by William on 2/24/2017.
+ * Modulo class. Extends parent class Question.
+ * Creates a modulo question for the game activity.
  */
 
-public class Modulo extends Question {
+class Modulo extends Question {
 
-    public Modulo() {
+    Modulo() {
         super();
         super.setMode(4);
         super.setTime_limit(7500); //in milliseconds
