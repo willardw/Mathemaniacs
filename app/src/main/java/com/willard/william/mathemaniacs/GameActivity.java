@@ -247,23 +247,23 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setAnswer1(int answer) {
-        Button b = (Button) findViewById(R.id.answer1Button);
-        b.setText(""+answer);
+        TextView t = (TextView) findViewById(R.id.answer1Text);
+        t.setText(""+answer);
     }
 
     private void setAnswer2(int answer) {
-        Button b = (Button) findViewById(R.id.answer2Button);
-        b.setText(""+answer);
+        TextView t = (TextView) findViewById(R.id.answer2Text);
+        t.setText(""+answer);
     }
 
     private void setAnswer3(int answer) {
-        Button b = (Button) findViewById(R.id.answer3Button);
-        b.setText(""+answer);
+        TextView t = (TextView) findViewById(R.id.answer3Text);
+        t.setText(""+answer);
     }
 
     private void setAnswer4(int answer) {
-        Button b = (Button) findViewById(R.id.answer4Button);
-        b.setText(""+answer);
+        TextView t = (TextView) findViewById(R.id.answer4Text);
+        t.setText(""+answer);
     }
 
     private void setStreak() {
@@ -328,17 +328,17 @@ public class GameActivity extends AppCompatActivity {
         alert.setTitle("Incorrect Answer!");
         String wrong_answer;
         if (answer == 1) {
-            Button b = (Button) findViewById(R.id.answer1Button);
-            wrong_answer = (String) b.getText();
+            TextView t = (TextView) findViewById(R.id.answer1Text);
+            wrong_answer = (String) t.getText();
         } else if (answer == 2) {
-            Button b = (Button) findViewById(R.id.answer2Button);
-            wrong_answer = (String) b.getText();
+            TextView t = (TextView) findViewById(R.id.answer2Text);
+            wrong_answer = (String) t.getText();
         } else if (answer == 3) {
-            Button b = (Button) findViewById(R.id.answer3Button);
-            wrong_answer = (String) b.getText();
+            TextView t = (TextView) findViewById(R.id.answer3Text);
+            wrong_answer = (String) t.getText();
         } else {
-            Button b = (Button) findViewById(R.id.answer4Button);
-            wrong_answer = (String) b.getText();
+            TextView t = (TextView) findViewById(R.id.answer4Text);
+            wrong_answer = (String) t.getText();
         }
         if (mode == 0 || mode == 1 || mode == 2 || mode == 3) {
             alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " x " + q.secondOperand +
