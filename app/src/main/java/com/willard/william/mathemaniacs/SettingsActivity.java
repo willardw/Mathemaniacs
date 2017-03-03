@@ -1,6 +1,5 @@
 package com.willard.william.mathemaniacs;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -11,6 +10,8 @@ import android.view.View;
 import android.widget.RadioButton;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    //TODO add background behind radio buttons to make layout look better
 
     SharedPreferences sharedPref;
 

@@ -1,7 +1,6 @@
 package com.willard.william.mathemaniacs;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -250,39 +250,39 @@ public class GameActivity extends AppCompatActivity {
     private void setAnswer1(int answer) {
         TextView t = (TextView) findViewById(R.id.answer1Text);
         if (t != null) {
-            t.setText(""+answer);
+            t.setText(getString(R.string.textViewAnswer, answer));
         }
     }
 
     private void setAnswer2(int answer) {
         TextView t = (TextView) findViewById(R.id.answer2Text);
         if (t != null) {
-            t.setText(""+answer);
+            t.setText(getString(R.string.textViewAnswer, answer));
         }
     }
 
     private void setAnswer3(int answer) {
         TextView t = (TextView) findViewById(R.id.answer3Text);
         if (t != null) {
-            t.setText(""+answer);
+            t.setText(getString(R.string.textViewAnswer, answer));
         }
     }
 
     private void setAnswer4(int answer) {
         TextView t = (TextView) findViewById(R.id.answer4Text);
         if (t != null) {
-            t.setText(""+answer);
+            t.setText(getString(R.string.textViewAnswer, answer));
         }
     }
 
     private void setStreak() {
         TextView tv1 = (TextView) findViewById(R.id.streakText);
         if (tv1 != null) {
-            tv1.setText("Current Streak: " + streak);
+            tv1.setText(getString(R.string.textViewCurrentBest, streak));
         }
         TextView tv2 = (TextView) findViewById(R.id.previousStreakText);
         if (tv2 != null) {
-            tv2.setText("Previous Streak: " + previous_best_streak);
+            tv2.setText(getString(R.string.textViewPreviousBest, previous_best_streak));
         }
     }
 
@@ -332,7 +332,18 @@ public class GameActivity extends AppCompatActivity {
 
     public void correctAnswer() {
         cdt.cancel();
-        //TODO make a toast saying correct, should be discrete but also inform player that they did good
+        double rand = Math.random();
+        String text;
+        if (rand < .25) {
+            text = getString(R.string.correct1);
+        } else if (rand < .5) {
+            text = getString(R.string.correct2);
+        } else if (rand < .75) {
+            text = getString(R.string.correct3);
+        } else {
+            text = getString(R.string.correct4);
+        }
+        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
         newGame(1);
     }
 
@@ -492,19 +503,19 @@ public class GameActivity extends AppCompatActivity {
         }
         tv = (TextView) findViewById(R.id.timeLeftText);
         if (tv != null) {
-            tv.setText("Time Left: " + (time_limit/1000+1));
+            tv.setText(getString(R.string.textViewTimeLeft, time_limit/1000+1));
         }
         cdt = new CountDownTimer(time_limit, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
-                tv.setText("Time Left: " + (millisUntilFinished/1000+1));
+                tv.setText(getString(R.string.textViewTimeLeft, millisUntilFinished/1000+1));
                 time_passed++;
                 pb.setProgress(time_passed);
             }
             @Override
             public void onFinish() {
                 timerDone = true;
-                tv.setText("Time Left: 0");
+                tv.setText(getString(R.string.textViewTimeLeft, 0));
                 outOfTime();
                 time_passed++;
                 pb.setProgress(time_passed);

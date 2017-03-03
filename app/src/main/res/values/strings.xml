@@ -27,9 +27,13 @@
     <string name="answerButtonDescription">Background Image for Answers</string>
     <string name="question">Question</string>
     <string name="answer">Answer</string>
+    <string name="textViewAnswer">%1$d</string>
     <string name="timeLeft">Time Left: </string>
+    <string name="textViewTimeLeft">Time Left: %1$d</string>
     <string name="currentBest">Current Streak: </string>
+    <string name="textViewCurrentBest">Current Streak: %1$d</string>
     <string name="previousBest">Previous Streak: </string>
+    <string name="textViewPreviousBest">Previous Streak: %1$d</string>
     <string name="settings">Settings</string>
     <string name="basicSetting">Basic Multiplication Difficulty</string>
     <string name="advancedSetting">Advanced Multiplication Difficulty</string>
@@ -46,4 +50,8 @@
     <string name="squaresDifficulty">SquaresDifficulty</string>
     <string name="moduloDifficulty">ModuloDifficulty</string>
     <string name="factorialDifficulty">FactorialDifficulty</string>
+    <string name="correct1">Correct! Nice Job</string>
+    <string name="correct2">Nice! Keep Going</string>
+    <string name="correct3">Right On!</string>
+    <string name="correct4">You\'re a Mathemaniac!</string>
 </resources>
