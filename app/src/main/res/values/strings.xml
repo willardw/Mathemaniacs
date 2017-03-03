@@ -54,4 +54,6 @@
     <string name="correct2">Nice! Keep Going</string>
     <string name="correct3">Right On!</string>
     <string name="correct4">You\'re a Mathemaniac!</string>
+    <string name="radioButtonBackground">Background Image for Radio Buttons</string>
+    <string name="gameHeaderBackground">Background Image for Game Header</string>
 </resources>

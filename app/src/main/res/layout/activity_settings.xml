@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@drawable/mathemaniacsbackground"
     tools:context="com.willard.william.mathemaniacs.SettingsActivity">
 
@@ -41,7 +42,7 @@
         android:layout_centerInParent="true"
         android:id="@+id/settingsLayout"
         android:layout_below="@+id/backButtonLayout"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -61,319 +62,314 @@
 
     </FrameLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/settingsLayout"
-        android:orientation="vertical"
-        android:layout_marginTop="5dp">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settingsLayout"
+        android:layout_marginTop="32dp">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/radiobuttonbackground"
+            android:layout_gravity="center"
+            android:contentDescription="@string/radioButtonBackground"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/largebuttonbackground"
-                android:layout_gravity="center"
-                android:contentDescription="@string/settingsTextBackgroundDescription"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/basicSetting"/>
-
-        </FrameLayout>
-
-        <RadioGroup
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/basicEasyRadioButton"
-                android:layout_width="wrap_content"
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/settingstextbackground"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/settingsTextBackgroundDescription"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/basicSetting"/>
+
+            </FrameLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/easy"
-                android:textColor="@color/black"
-                android:onClick="basicDifficultySet"/>
+                android:orientation="horizontal"
+                android:gravity="center">
 
-            <RadioButton
-                android:id="@+id/basicNormalRadioButton"
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/basicEasyRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/easy"
+                    android:onClick="basicDifficultySet"/>
+
+                <RadioButton
+                    android:id="@+id/basicNormalRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/normal"
+                    android:onClick="basicDifficultySet"/>
+
+                <RadioButton
+                    android:id="@+id/basicHardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hard"
+                    android:onClick="basicDifficultySet"/>
+
+            </RadioGroup>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/settingstextbackground"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/settingsTextBackgroundDescription"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/advancedSetting"/>
+
+            </FrameLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/normal"
-                android:textColor="@color/black"
-                android:onClick="basicDifficultySet"/>
+                android:orientation="horizontal"
+                android:gravity="center">
 
-            <RadioButton
-                android:id="@+id/basicHardRadioButton"
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/advancedEasyRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/easy"
+                    android:onClick="advancedDifficultySet"/>
+
+                <RadioButton
+                    android:id="@+id/advancedNormalRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/normal"
+                    android:onClick="advancedDifficultySet"/>
+
+                <RadioButton
+                    android:id="@+id/advancedHardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hard"
+                    android:onClick="advancedDifficultySet"/>
+
+            </RadioGroup>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/settingstextbackground"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/settingsTextBackgroundDescription"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/expertSetting"/>
+
+            </FrameLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hard"
-                android:textColor="@color/black"
-                android:onClick="basicDifficultySet"/>
+                android:orientation="horizontal"
+                android:gravity="center">
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/expertEasyRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/easy"
+                    android:onClick="expertDifficultySet"/>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/expertNormalRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/normal"
+                    android:onClick="expertDifficultySet"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/expertHardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hard"
+                    android:onClick="expertDifficultySet"/>
+
+            </RadioGroup>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/settingstextbackground"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/settingsTextBackgroundDescription"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/squaresSetting"/>
+
+            </FrameLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/largebuttonbackground"
-                android:layout_gravity="center"
-                android:contentDescription="@string/settingsTextBackgroundDescription"/>
+                android:orientation="horizontal"
+                android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/squaresEasyRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/easy"
+                    android:onClick="squaresDifficultySet"/>
+
+                <RadioButton
+                    android:id="@+id/squaresNormalRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/normal"
+                    android:onClick="squaresDifficultySet"/>
+
+                <RadioButton
+                    android:id="@+id/squaresHardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hard"
+                    android:onClick="squaresDifficultySet"/>
+
+            </RadioGroup>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/settingstextbackground"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/settingsTextBackgroundDescription"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/moduloSetting"/>
+
+            </FrameLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/advancedSetting"/>
+                android:orientation="horizontal"
+                android:gravity="center">
 
-        </FrameLayout>
+                <RadioButton
+                    android:id="@+id/moduloEasyRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/easy"
+                    android:onClick="moduloDifficultySet"/>
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+                <RadioButton
+                    android:id="@+id/moduloNormalRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/normal"
+                    android:onClick="moduloDifficultySet"/>
 
-            <RadioButton
-                android:id="@+id/advancedEasyRadioButton"
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/moduloHardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hard"
+                    android:onClick="moduloDifficultySet"/>
+
+            </RadioGroup>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/settingstextbackground"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/settingsTextBackgroundDescription"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/factorialSetting"/>
+
+            </FrameLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/easy"
-                android:textColor="@color/black"
-                android:onClick="advancedDifficultySet"/>
+                android:orientation="horizontal"
+                android:gravity="center">
 
-            <RadioButton
-                android:id="@+id/advancedNormalRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/normal"
-                android:textColor="@color/black"
-                android:onClick="advancedDifficultySet"/>
+                <RadioButton
+                    android:id="@+id/factorialEasyRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/easy"
+                    android:onClick="factorialDifficultySet"/>
 
-            <RadioButton
-                android:id="@+id/advancedHardRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hard"
-                android:textColor="@color/black"
-                android:onClick="advancedDifficultySet"/>
+                <RadioButton
+                    android:id="@+id/factorialNormalRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/normal"
+                    android:onClick="factorialDifficultySet"/>
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/factorialHardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hard"
+                    android:onClick="factorialDifficultySet"/>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            </RadioGroup>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/largebuttonbackground"
-                android:layout_gravity="center"
-                android:contentDescription="@string/settingsTextBackgroundDescription"/>
+        </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/expertSetting"/>
-
-        </FrameLayout>
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <RadioButton
-                android:id="@+id/expertEasyRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/easy"
-                android:textColor="@color/black"
-                android:onClick="expertDifficultySet"/>
-
-            <RadioButton
-                android:id="@+id/expertNormalRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/normal"
-                android:textColor="@color/black"
-                android:onClick="expertDifficultySet"/>
-
-            <RadioButton
-                android:id="@+id/expertHardRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hard"
-                android:textColor="@color/black"
-                android:onClick="expertDifficultySet"/>
-
-        </RadioGroup>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/largebuttonbackground"
-                android:layout_gravity="center"
-                android:contentDescription="@string/settingsTextBackgroundDescription"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/squaresSetting"/>
-
-        </FrameLayout>
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <RadioButton
-                android:id="@+id/squaresEasyRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/easy"
-                android:textColor="@color/black"
-                android:onClick="squaresDifficultySet"/>
-
-            <RadioButton
-                android:id="@+id/squaresNormalRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/normal"
-                android:textColor="@color/black"
-                android:onClick="squaresDifficultySet"/>
-
-            <RadioButton
-                android:id="@+id/squaresHardRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hard"
-                android:textColor="@color/black"
-                android:onClick="squaresDifficultySet"/>
-
-        </RadioGroup>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/largebuttonbackground"
-                android:layout_gravity="center"
-                android:contentDescription="@string/settingsTextBackgroundDescription"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/moduloSetting"/>
-
-        </FrameLayout>
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <RadioButton
-                android:id="@+id/moduloEasyRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/easy"
-                android:textColor="@color/black"
-                android:onClick="moduloDifficultySet"/>
-
-            <RadioButton
-                android:id="@+id/moduloNormalRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/normal"
-                android:textColor="@color/black"
-                android:onClick="moduloDifficultySet"/>
-
-            <RadioButton
-                android:id="@+id/moduloHardRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hard"
-                android:textColor="@color/black"
-                android:onClick="moduloDifficultySet"/>
-
-        </RadioGroup>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/largebuttonbackground"
-                android:layout_gravity="center"
-                android:contentDescription="@string/settingsTextBackgroundDescription"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/factorialSetting"/>
-
-        </FrameLayout>
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <RadioButton
-                android:id="@+id/factorialEasyRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/easy"
-                android:textColor="@color/black"
-                android:onClick="factorialDifficultySet"/>
-
-            <RadioButton
-                android:id="@+id/factorialNormalRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/normal"
-                android:textColor="@color/black"
-                android:onClick="factorialDifficultySet"/>
-
-            <RadioButton
-                android:id="@+id/factorialHardRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hard"
-                android:textColor="@color/black"
-                android:onClick="factorialDifficultySet"/>
-
-        </RadioGroup>
-
-    </LinearLayout>
+    </FrameLayout>
 
 </RelativeLayout>

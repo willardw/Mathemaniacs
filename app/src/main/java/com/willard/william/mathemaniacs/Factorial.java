@@ -22,7 +22,7 @@ class Factorial extends Question {
                 super.setTime_limit(3000); //hard -> 3 seconds
         }
         super.setOperation(2); //factorial
-        super.setFirstOperand(getFactorialNumber()); //range 1-10
+        super.setFirstOperand(getBasicNumber()); //range 1-10
         super.setSecondOperand(0);
         super.setResult(factorial(firstOperand));
         super.setBlank(2);
@@ -30,14 +30,9 @@ class Factorial extends Question {
         super.setFakeAnswer2(0);
         super.setFakeAnswer3(0);
         super.setRealAnswer(result);
-        super.setFakeAnswer1(findFakeResultInterval(15));
-        super.setFakeAnswer2(findFakeResultInterval(15));
-        super.setFakeAnswer3(findFakeResultInterval(15));
-    }
-
-    // picks a number between 1 and 8 from uniform probability
-    private int getFactorialNumber() {
-       return (int) (Math.random()*8)+1;
+        super.setFakeAnswer1(findFakeFactorialAnswer());
+        super.setFakeAnswer2(findFakeFactorialAnswer());
+        super.setFakeAnswer3(findFakeFactorialAnswer());
     }
 
     private int factorial(int n) {
@@ -46,15 +41,13 @@ class Factorial extends Question {
         }
         return n*(factorial(n-1));
     }
-    //TODO remove this method if we never end up using it (highly likely)
-    /**
+
     private int findFakeFactorialAnswer() {
         int fake = 0;
         while (fake < 1 || fake == real_answer || fake == fake_answer1 || fake == fake_answer2 || fake == fake_answer3) {
-            int offset = (int) (Math.random()*3)-1;
+            int offset = (int) (Math.random()*7)-3;
             fake = factorial(firstOperand+offset);
         }
         return fake;
     }
-    */
 }

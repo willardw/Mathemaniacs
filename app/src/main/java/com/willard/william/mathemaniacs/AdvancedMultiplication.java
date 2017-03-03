@@ -40,7 +40,6 @@ class AdvancedMultiplication extends Question {
             super.setFakeAnswer2(findFakeOperandInterval(11));
             super.setFakeAnswer3(findFakeOperandInterval(11));
         } else {
-            //TODO make 1 fake answer smarter by having the same base digit as real answer
             super.setRealAnswer(result);
             super.setFakeAnswer1(findFakeFirstOperand());
             super.setFakeAnswer2(findFakeSecondOperand());

@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
-    //TODO change top of layout to look better
-
     SharedPreferences sharedPref;
     int mode;
     Question q;
@@ -373,14 +371,11 @@ public class GameActivity extends AppCompatActivity {
             }
         }
         if (mode == 0 || mode == 1 || mode == 2 || mode == 3) {
-            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " x " + q.secondOperand +
-                    " = " + q.result + "\nStreak: " + streak + "\nPrevious Best: " + previous_best_streak);
+            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " x " + q.secondOperand + " = " + q.result);
         } else if (mode == 4) {
-            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " % " + q.secondOperand +
-                    " = " + q.result + "\nStreak: " + streak + "\nPrevious Best: " + previous_best_streak);
+            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " % " + q.secondOperand + " = " + q.result);
         } else if (mode == 5) {
-            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " ! = " + q.result + "\nStreak: " + streak
-                    + "\nPrevious Best: " + previous_best_streak);
+            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " ! = " + q.result);
         }
         alert.setCancelable(false);
         alert.setNegativeButton("Back to Menu", new DialogInterface.OnClickListener() {
@@ -404,14 +399,11 @@ public class GameActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Out of Time!");
         if (mode == 0 || mode == 1 || mode == 2 || mode == 3) {
-            alert.setMessage(q.firstOperand + " x " + q.secondOperand + " = " + q.result + "\nStreak: " + streak
-                    + "\nPrevious Best: " + previous_best_streak);
+            alert.setMessage(q.firstOperand + " x " + q.secondOperand + " = " + q.result);
         } else if (mode == 4) {
-            alert.setMessage(q.firstOperand + " % " + q.secondOperand + " = " + q.result + "\nStreak: " + streak
-                    + "\nPrevious Best: " + previous_best_streak);
+            alert.setMessage(q.firstOperand + " % " + q.secondOperand + " = " + q.result);
         } else if (mode == 5) {
-            alert.setMessage(q.firstOperand + " ! = " + q.result + "\nStreak: " + streak
-                    + "\nPrevious Best: " + previous_best_streak);
+            alert.setMessage(q.firstOperand + " ! = " + q.result);
         }
         alert.setCancelable(false);
         alert.setNegativeButton("Back to Menu", new DialogInterface.OnClickListener() {
