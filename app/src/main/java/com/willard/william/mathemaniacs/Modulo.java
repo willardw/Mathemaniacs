@@ -7,10 +7,20 @@ package com.willard.william.mathemaniacs;
 
 class Modulo extends Question {
 
-    Modulo() {
+    Modulo(int difficulty) {
         super();
         super.setMode(4);
-        super.setTime_limit(7500); //in milliseconds
+        super.setTime_limit(0);
+        switch(difficulty) {
+            case 0:
+                super.setTime_limit(16000); //easy -> 16 seconds
+                break;
+            case 1:
+                super.setTime_limit(8000); //normal -> 8 seconds
+                break;
+            case 2:
+                super.setTime_limit(5000); //hard -> 5 seconds
+        }
         super.setOperation(1); //modulo
         super.setFirstOperand(getLargeModuloNumber()); //range 1-100
         super.setSecondOperand(getBasicNumber()+3); //range 4-13

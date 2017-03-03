@@ -7,10 +7,20 @@ package com.willard.william.mathemaniacs;
 
 class BasicMultiplication extends Question {
 
-    BasicMultiplication() {
+    BasicMultiplication(int difficulty) {
         super();
         super.setMode(0);
-        super.setTime_limit(3000); //in milliseconds
+        super.setTime_limit(0);
+        switch(difficulty) {
+            case 0:
+                super.setTime_limit(10000); //easy -> 10 seconds
+                break;
+            case 1:
+                super.setTime_limit(3000); //normal -> 3 seconds
+                break;
+            case 2:
+                super.setTime_limit(2000); //hard -> 2 seconds
+        }
         super.setOperation(0); //multiply
         super.setFirstOperand(getBasicNumber()); //range 1-10
         super.setSecondOperand(getBasicNumber()); //range 1-10

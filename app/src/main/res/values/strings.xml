@@ -12,6 +12,8 @@
     <string name="back">Back</string>
     <string name="gameModes">Game Modes</string>
     <string name="modesBackgroundDescription">Background Image for Modes Text</string>
+    <string name="settingsBackgroundDescription">Background Image for Settings Text</string>
+    <string name="settingsTextBackgroundDescription">Background Image for Setting modes</string>
     <string name="basicMulti">Basic Multiplication</string>
     <string name="advancedMulti">Advanced Multiplication</string>
     <string name="expertMulti">Expert Multiplication</string>
@@ -28,4 +30,20 @@
     <string name="timeLeft">Time Left: </string>
     <string name="currentBest">Current Streak: </string>
     <string name="previousBest">Previous Streak: </string>
+    <string name="settings">Settings</string>
+    <string name="basicSetting">Basic Multiplication Difficulty</string>
+    <string name="advancedSetting">Advanced Multiplication Difficulty</string>
+    <string name="expertSetting">Expert Multiplication Difficulty</string>
+    <string name="squaresSetting">Squares Difficulty</string>
+    <string name="moduloSetting">Modulo Difficulty</string>
+    <string name="factorialSetting">Factorial Difficulty</string>
+    <string name="easy">Easy</string>
+    <string name="normal">Normal</string>
+    <string name="hard">Hard</string>
+    <string name="basicDifficulty">BasicDifficulty</string>
+    <string name="advancedDifficulty">AdvancedDifficulty</string>
+    <string name="expertDifficulty">ExpertDifficulty</string>
+    <string name="squaresDifficulty">SquaresDifficulty</string>
+    <string name="moduloDifficulty">ModuloDifficulty</string>
+    <string name="factorialDifficulty">FactorialDifficulty</string>
 </resources>

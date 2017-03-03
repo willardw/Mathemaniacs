@@ -8,7 +8,6 @@ import android.view.View;
 public class TitleActivity extends AppCompatActivity {
 
     //TODO make ready for release
-    //TODO add a settings activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

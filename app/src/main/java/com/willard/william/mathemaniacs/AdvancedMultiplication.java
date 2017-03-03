@@ -7,10 +7,20 @@ package com.willard.william.mathemaniacs;
 
 class AdvancedMultiplication extends Question {
 
-    AdvancedMultiplication() {
+    AdvancedMultiplication(int difficulty) {
         super();
         super.setMode(1);
-        super.setTime_limit(8000); //in milliseconds
+        super.setTime_limit(0);
+        switch(difficulty) {
+            case 0:
+                super.setTime_limit(15000); //easy -> 15 seconds
+                break;
+            case 1:
+                super.setTime_limit(8000); //normal -> 8 seconds
+                break;
+            case 2:
+                super.setTime_limit(5000); //hard -> 5 seconds
+        }
         super.setOperation(0); //multiply
         super.setFirstOperand(getBasicNumber()+1); //range 2-11
         super.setSecondOperand(getAdvancedNumber()); //range 11-30

@@ -7,10 +7,20 @@ package com.willard.william.mathemaniacs;
 
 class Squares extends Question {
 
-    Squares() {
+    Squares(int difficulty) {
         super();
         super.setMode(3);
-        super.setTime_limit(5000); //in milliseconds
+        super.setTime_limit(0);
+        switch(difficulty) {
+            case 0:
+                super.setTime_limit(10000); //easy -> 10 seconds
+                break;
+            case 1:
+                super.setTime_limit(5000); //normal -> 5 seconds
+                break;
+            case 2:
+                super.setTime_limit(3000); //hard -> 3 seconds
+        }
         super.setOperation(0); //multiply
         super.setFirstOperand(getSquaresNumber()); //range 1-13
         super.setSecondOperand(firstOperand);

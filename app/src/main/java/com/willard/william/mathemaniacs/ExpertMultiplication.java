@@ -7,10 +7,20 @@ package com.willard.william.mathemaniacs;
 
 class ExpertMultiplication extends Question {
 
-    ExpertMultiplication() {
+    ExpertMultiplication(int difficulty) {
         super();
         super.setMode(2);
-        super.setTime_limit(10000); //in milliseconds
+        super.setTime_limit(0);
+        switch(difficulty) {
+            case 0:
+                super.setTime_limit(20000); //easy -> 20 seconds
+                break;
+            case 1:
+                super.setTime_limit(10000); //normal -> 10 seconds
+                break;
+            case 2:
+                super.setTime_limit(6000); //hard -> 6 seconds
+        }
         super.setOperation(0); //multiply
         super.setFirstOperand(getBasicNumber()+2); //range: 3-12
         super.setSecondOperand(getExpertNumber()); //range: 31-50

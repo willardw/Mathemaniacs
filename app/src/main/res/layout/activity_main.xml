@@ -12,30 +12,60 @@
     android:background="@drawable/mathemaniacsbackground"
     tools:context="com.willard.william.mathemaniacs.MainActivity">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/backButtonLayout">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/topMenuButtons">
 
-        <ImageButton
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/smallbuttonbackground"
-            android:background="@null"
-            android:contentDescription="@string/backButtonDescription"
-            android:onClick="backButtonPressed"/>
+            android:id="@+id/backButtonLayout">
 
-        <TextView
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/smallbuttonbackground"
+                android:background="@null"
+                android:contentDescription="@string/backButtonDescription"
+                android:onClick="backButtonPressed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/back"
-            android:layout_gravity="center"/>
+            android:layout_marginLeft="120dp"
+            android:layout_marginStart="120dp"
+            android:id="@+id/settingsButtonLayout">
 
-    </FrameLayout>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/smallbuttonbackground"
+                android:background="@null"
+                android:contentDescription="@string/backButtonDescription"
+                android:onClick="settingsButtonPressed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -44,7 +74,7 @@
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
         android:id="@+id/modesLayout"
-        android:layout_below="@+id/backButtonLayout"
+        android:layout_below="@+id/topMenuButtons"
         android:layout_marginTop="20dp">
 
         <ImageView

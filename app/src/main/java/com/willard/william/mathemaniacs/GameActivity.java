@@ -5,19 +5,18 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
 
-    //TODO change textViews to have backgrounds and look better
+    //TODO change top of layout to look better
 
     SharedPreferences sharedPref;
     int mode;
@@ -38,7 +37,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         mode = (int) getIntent().getSerializableExtra("mode");
         streak = (int) getIntent().getSerializableExtra("streak");
-        sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         getPreviousBest();
         setQuestion();
         setQuestionText();
@@ -75,22 +74,22 @@ public class GameActivity extends AppCompatActivity {
     private void setQuestion() {
         switch (mode) {
             case 0:
-                q = new BasicMultiplication();
+                q = new BasicMultiplication(sharedPref.getInt(getString(R.string.basicDifficulty), 1));
                 break;
             case 1:
-                q = new AdvancedMultiplication();
+                q = new AdvancedMultiplication(sharedPref.getInt(getString(R.string.advancedDifficulty), 1));
                 break;
             case 2:
-                q = new ExpertMultiplication();
+                q = new ExpertMultiplication(sharedPref.getInt(getString(R.string.expertDifficulty), 1));
                 break;
             case 3:
-                q = new Squares();
+                q = new Squares(sharedPref.getInt(getString(R.string.squaresDifficulty), 1));
                 break;
             case 4:
-                q = new Modulo();
+                q = new Modulo(sharedPref.getInt(getString(R.string.moduloDifficulty), 1));
                 break;
             case 5:
-                q = new Factorial();
+                q = new Factorial(sharedPref.getInt(getString(R.string.factorialDifficulty), 1));
         }
     }
 
@@ -122,7 +121,9 @@ public class GameActivity extends AppCompatActivity {
             question += "= " + q.result;
         }
         TextView t = (TextView) findViewById(R.id.questionText);
-        t.setText(question);
+        if (t != null) {
+            t.setText(question);
+        }
     }
 
     private void setAnswers() {
@@ -248,29 +249,41 @@ public class GameActivity extends AppCompatActivity {
 
     private void setAnswer1(int answer) {
         TextView t = (TextView) findViewById(R.id.answer1Text);
-        t.setText(""+answer);
+        if (t != null) {
+            t.setText(""+answer);
+        }
     }
 
     private void setAnswer2(int answer) {
         TextView t = (TextView) findViewById(R.id.answer2Text);
-        t.setText(""+answer);
+        if (t != null) {
+            t.setText(""+answer);
+        }
     }
 
     private void setAnswer3(int answer) {
         TextView t = (TextView) findViewById(R.id.answer3Text);
-        t.setText(""+answer);
+        if (t != null) {
+            t.setText(""+answer);
+        }
     }
 
     private void setAnswer4(int answer) {
         TextView t = (TextView) findViewById(R.id.answer4Text);
-        t.setText(""+answer);
+        if (t != null) {
+            t.setText(""+answer);
+        }
     }
 
     private void setStreak() {
         TextView tv1 = (TextView) findViewById(R.id.streakText);
-        tv1.setText("Current Streak: " + streak);
+        if (tv1 != null) {
+            tv1.setText("Current Streak: " + streak);
+        }
         TextView tv2 = (TextView) findViewById(R.id.previousStreakText);
-        tv2.setText("Previous Streak: " + previous_best_streak);
+        if (tv2 != null) {
+            tv2.setText("Previous Streak: " + previous_best_streak);
+        }
     }
 
     public void answer1ButtonPressed(View v) {
@@ -326,19 +339,27 @@ public class GameActivity extends AppCompatActivity {
     public void incorrectAnswer(int answer) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Incorrect Answer!");
-        String wrong_answer;
+        String wrong_answer = "";
         if (answer == 1) {
             TextView t = (TextView) findViewById(R.id.answer1Text);
-            wrong_answer = (String) t.getText();
+            if (t != null) {
+                wrong_answer = (String) t.getText();
+            }
         } else if (answer == 2) {
             TextView t = (TextView) findViewById(R.id.answer2Text);
-            wrong_answer = (String) t.getText();
+            if (t != null) {
+                wrong_answer = (String) t.getText();
+            }
         } else if (answer == 3) {
             TextView t = (TextView) findViewById(R.id.answer3Text);
-            wrong_answer = (String) t.getText();
+            if (t != null) {
+                wrong_answer = (String) t.getText();
+            }
         } else {
             TextView t = (TextView) findViewById(R.id.answer4Text);
-            wrong_answer = (String) t.getText();
+            if (t != null) {
+                wrong_answer = (String) t.getText();
+            }
         }
         if (mode == 0 || mode == 1 || mode == 2 || mode == 3) {
             alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " x " + q.secondOperand +
@@ -431,9 +452,7 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (Build.VERSION.SDK_INT > 5
-                && keyCode == KeyEvent.KEYCODE_BACK
-                && event.getRepeatCount() == 0) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
             backToMenu();
             return true;
         }
@@ -466,11 +485,15 @@ public class GameActivity extends AppCompatActivity {
 
     public void setProgressBar() {
         pb = (ProgressBar) findViewById(R.id.timeLimitBar);
-        pb.setMax(time_limit/100);
-        pb.setScaleY(2f);
-        pb.setProgress(time_passed);
+        if (pb != null) {
+            pb.setMax(time_limit/100);
+            pb.setScaleY(2f);
+            pb.setProgress(time_passed);
+        }
         tv = (TextView) findViewById(R.id.timeLeftText);
-        tv.setText("Time Left: " + (time_limit/1000+1));
+        if (tv != null) {
+            tv.setText("Time Left: " + (time_limit/1000+1));
+        }
         cdt = new CountDownTimer(time_limit, 100) {
             @Override
             public void onTick(long millisUntilFinished) {

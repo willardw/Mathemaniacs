@@ -1,7 +1,6 @@
 package com.willard.william.mathemaniacs;
 
 import android.content.Intent;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -22,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void backButtonPressed(View v) {
         backToTitle();
+    }
+
+    public void settingsButtonPressed(View v) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void basicMultiplyButtonPressed(View v) {
@@ -81,9 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (Build.VERSION.SDK_INT > 5
-                && keyCode == KeyEvent.KEYCODE_BACK
-                && event.getRepeatCount() == 0) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
             backToTitle();
             return true;
         }
