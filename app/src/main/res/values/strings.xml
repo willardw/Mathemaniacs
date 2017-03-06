@@ -56,4 +56,9 @@
     <string name="correct4">You\'re a Mathemaniac!</string>
     <string name="radioButtonBackground">Background Image for Radio Buttons</string>
     <string name="gameHeaderBackground">Background Image for Game Header</string>
+    <string name="customDialogBackground">Background Image for Custom Dialog</string>
+    <string name="dialogTitle">Dialog Title</string>
+    <string name="dialogMessage">Dialog Message</string>
+    <string name="nextQ">Next Question</string>
+    <string name="backMenu">Back to Menu</string>
 </resources>

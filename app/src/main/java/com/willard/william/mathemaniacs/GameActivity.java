@@ -398,13 +398,19 @@ public class GameActivity extends AppCompatActivity {
     public void outOfTime() {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Out of Time!");
+        String message = "";
         if (mode == 0 || mode == 1 || mode == 2 || mode == 3) {
-            alert.setMessage(q.firstOperand + " x " + q.secondOperand + " = " + q.result);
+            message = q.firstOperand + " x " + q.secondOperand + " = " + q.result;
         } else if (mode == 4) {
-            alert.setMessage(q.firstOperand + " % " + q.secondOperand + " = " + q.result);
+            message = q.firstOperand + " % " + q.secondOperand + " = " + q.result;
         } else if (mode == 5) {
-            alert.setMessage(q.firstOperand + " ! = " + q.result);
+            message = q.firstOperand + " ! = " + q.result;
         }
+        double rand = Math.random();
+        if (rand < .05) {
+            message += "\nNot Enough Time? Go to Settings to lower difficulty";
+        }
+        alert.setMessage(message);
         alert.setCancelable(false);
         alert.setNegativeButton("Back to Menu", new DialogInterface.OnClickListener() {
             @Override
