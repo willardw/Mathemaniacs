@@ -61,4 +61,13 @@
     <string name="dialogMessage">Dialog Message</string>
     <string name="nextQ">Next Question</string>
     <string name="backMenu">Back to Menu</string>
+    <string name="incorrectTitle">Incorrect Answer!</string>
+    <string name="outOfTimeTitle">Out of Time!</string>
+    <string name="incorrectMultiply">Your Answer: %1$s\nCorrect Answer: %2$d x %3$d = %4$d</string>
+    <string name="incorrectModulo">Your Answer: %1$s\nCorrect Answer: %2$d %% %3$d = %4$d</string>
+    <string name="incorrectFactorial">Your Answer: %1$s\nCorrect Answer: %2$d ! = %3$d</string>
+    <string name="outOfTimeMultiply">%1$d x %2$d = %3$d</string>
+    <string name="outOfTimeModulo">%1$d %% %2$d = %3$d</string>
+    <string name="outOfTimeFactorial">%1$d ! = %2$d</string>
+    <string name="notEnoughTime">\nNot Enough Time? Go to settings to lower difficulty</string>
 </resources>

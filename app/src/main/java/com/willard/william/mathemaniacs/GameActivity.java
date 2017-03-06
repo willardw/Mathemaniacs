@@ -249,6 +249,9 @@ public class GameActivity extends AppCompatActivity {
         TextView t = (TextView) findViewById(R.id.answer1Text);
         if (t != null) {
             t.setText(getString(R.string.textViewAnswer, answer));
+            if (mode != 5) {
+                t.setTextSize(20);
+            }
         }
     }
 
@@ -256,6 +259,9 @@ public class GameActivity extends AppCompatActivity {
         TextView t = (TextView) findViewById(R.id.answer2Text);
         if (t != null) {
             t.setText(getString(R.string.textViewAnswer, answer));
+            if (mode != 5) {
+                t.setTextSize(20);
+            }
         }
     }
 
@@ -263,6 +269,9 @@ public class GameActivity extends AppCompatActivity {
         TextView t = (TextView) findViewById(R.id.answer3Text);
         if (t != null) {
             t.setText(getString(R.string.textViewAnswer, answer));
+            if (mode != 5) {
+                t.setTextSize(20);
+            }
         }
     }
 
@@ -270,6 +279,9 @@ public class GameActivity extends AppCompatActivity {
         TextView t = (TextView) findViewById(R.id.answer4Text);
         if (t != null) {
             t.setText(getString(R.string.textViewAnswer, answer));
+            if (mode != 5) {
+                t.setTextSize(20);
+            }
         }
     }
 
@@ -347,7 +359,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void incorrectAnswer(int answer) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Incorrect Answer!");
+        alert.setTitle(R.string.incorrectTitle);
         String wrong_answer = "";
         if (answer == 1) {
             TextView t = (TextView) findViewById(R.id.answer1Text);
@@ -370,21 +382,23 @@ public class GameActivity extends AppCompatActivity {
                 wrong_answer = (String) t.getText();
             }
         }
+        String message = "";
         if (mode == 0 || mode == 1 || mode == 2 || mode == 3) {
-            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " x " + q.secondOperand + " = " + q.result);
+            message = getString(R.string.incorrectMultiply, wrong_answer, q.firstOperand, q.secondOperand, q.result);
         } else if (mode == 4) {
-            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " % " + q.secondOperand + " = " + q.result);
+            message = getString(R.string.incorrectModulo, wrong_answer, q.firstOperand, q.secondOperand, q.result);
         } else if (mode == 5) {
-            alert.setMessage("Your Answer: " + wrong_answer + "\nCorrect Answer: " + q.firstOperand + " ! = " + q.result);
+            message = getString(R.string.incorrectFactorial, wrong_answer, q.firstOperand, q.result);
         }
+        alert.setMessage(message);
         alert.setCancelable(false);
-        alert.setNegativeButton("Back to Menu", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton(R.string.backMenu, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 backToMenu();
             }
         });
-        alert.setPositiveButton("Next Question", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton(R.string.nextQ, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 newGame(0);
@@ -397,28 +411,28 @@ public class GameActivity extends AppCompatActivity {
 
     public void outOfTime() {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Out of Time!");
+        alert.setTitle(R.string.outOfTimeTitle);
         String message = "";
         if (mode == 0 || mode == 1 || mode == 2 || mode == 3) {
-            message = q.firstOperand + " x " + q.secondOperand + " = " + q.result;
+            message = getString(R.string.outOfTimeMultiply, q.firstOperand, q.secondOperand, q.result);
         } else if (mode == 4) {
-            message = q.firstOperand + " % " + q.secondOperand + " = " + q.result;
+            message = getString(R.string.outOfTimeModulo, q.firstOperand, q.secondOperand, q.result);
         } else if (mode == 5) {
-            message = q.firstOperand + " ! = " + q.result;
+            message = getString(R.string.outOfTimeFactorial, q.firstOperand, q.result);
         }
         double rand = Math.random();
         if (rand < .05) {
-            message += "\nNot Enough Time? Go to Settings to lower difficulty";
+            message += R.string.notEnoughTime;
         }
         alert.setMessage(message);
         alert.setCancelable(false);
-        alert.setNegativeButton("Back to Menu", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton(R.string.backMenu, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 backToMenu();
             }
         });
-        alert.setPositiveButton("Next Question", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton(R.string.nextQ, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 newGame(0);
